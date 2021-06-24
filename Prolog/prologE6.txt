@@ -1,0 +1,43 @@
+difficultfood(bluecheese).
+difficultfood(durian).
+difficultfood(garlic).
+difficultfood(gejang).
+difficultfood(injera).
+difficultfood(jalapeno).
+difficultfood(maatjes).
+difficultfood(natto).
+difficultfood(slurpee).
+difficultfood(stinkytofu).
+difficultfood(uni).
+difficultfood(marshmallow).
+% 2
+difficultfood(rocks).
+difficultfood(ice).
+likes(bob, rocks).
+likes(bob2, ice).
+
+likes(eri,garlic).
+likes(eri,jalapeno).
+likes(eri,slurpee).
+likes(hamed,uni).
+likes(phil,bluecheese).
+likes(phil,garlic).
+likes(phil,injera).
+likes(piper,gejang).
+likes(piper,maatjes).
+likes(piper,natto).
+likes(meredith,marshmallow).
+
+
+% 1
+% likes(phil,injera). 	true
+% likes(hamed,X). 		uni
+% likes(piper,X). 		gejang, mattjes, natto
+% likes(jetset,X).		fail
+% likes(X,durian). 		fail
+% likes(X,garlic)		eri, phil
+
+
+% 3
+
+likes(jetset, X) :- difficultfood(X).

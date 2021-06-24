@@ -1,0 +1,26 @@
+digit(0).
+digit(1).
+
+binSum([], 0).
+binSum([Head|Tail],Sum) :- binSum(Tail,Temp), 
+    length(Tail, L), digit(Head),
+    Sum is Temp + Head * 2 ^ L.
+    %write([Head|Tail]).
+
+binary(Num, Digits) :- binSum(Digits, Sum), Num is Sum, !.
+
+toBinary([0],0).
+toBinary([1],1).
+
+toBinary(Num, Digits) :- 0 is mod(Num,2),
+    Half is Num // 2,
+    toBinary(Half, FrontDigits),
+    append(FrontDigits,[Rem], Digits).
+    
+toBinary(Num, Digits) :- 1 is mod(Num,2),
+    Half is Num // 2,
+    toBinary(Half, 1).
+
+fac(0,1) :- !.
+fac(F,N) :- F1 is F - 1 fac(F1,Temp),
+    N is F * Temp.

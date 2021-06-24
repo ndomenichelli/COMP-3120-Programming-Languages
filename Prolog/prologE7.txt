@@ -1,0 +1,45 @@
+% 1
+substr(X,y) :- sub_string(Y,_,_,_,X).
+
+% 2a
+fb(0,0).
+fb(1,1).
+fb(X,Y) :- X>1, A is X-1, B is X-2,
+    fb(A,X1), fb(B,X2),
+    Y is X1 + X2.
+
+%2b
+fb2(X,Y) :- fibi(X,[Y|_]).
+
+%3
+prfx([A,B], _) :- [A,B] =:= H, H is [H|_].
+
+%3b
+
+sffx(_, [A,B]) :- [A,B] =:= T, T is [_|T].
+%4a
+
+digit(0).
+digit(1).
+
+binSum([],0).
+binSum([Head|Tail],Sum) :- binSum(Tail, Temp),
+    length(Tail,L),
+    digit(Head), 
+    Sum is Head * 2 ^ L + Temp.
+	%, write([Head|Tail]), nl. 
+
+binary(N,D) :- binSum(D,Sum), N is Sum, !.
+binary(Num, Digits) :- binSum(Digits, Sum), Num is Sum, !.
+
+%toBinary([0],0).
+%toBinary([1],1).
+
+%toBinary(Num, Digits) :- 0 is mod(Num,2),
+%    Half is Num // 2,
+%    toBinary(Half, FrontDigits),
+%    append(FrontDigits,[Rem], Digits).
+    
+%toBinary(Num, Digits) :- 1 is mod(Num,2),
+%    Half is Num // 2,
+%    toBinary(Half, 1).

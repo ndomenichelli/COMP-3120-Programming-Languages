@@ -1,0 +1,7 @@
+% human(jeff).
+% falliable(X) :- human(X).
+
+% P(a,X)	P(a,b)		X -> b
+% P(a,X)	P(Y,b)		X -> b, Y -> a
+% P(a,X)	P(Y,f(a)) 	X-> f(a), Y -> a
+% P(a,X)	P(X, b)		X -> a, X -> b no bad

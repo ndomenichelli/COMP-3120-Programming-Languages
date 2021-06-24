@@ -1,0 +1,25 @@
+egg(scrambled).
+egg(roll).
+egg(fried).
+
+eggSame(X,Y) :- egg(X), egg(Y), X = Y.
+
+% maths
+
+% Test is 3.
+
+first2things([A,B|_], Y) :- Y = [A,B].
+
+odd(N) :- Y is mod(N,2), Y = 1.
+
+parent(martha, bob).
+parent(ron, martha).
+parent(lee, ron).
+parent(todd, bob).
+parent(chris, todd).
+parent(andy, ron).
+
+ancestor(X,Y) :- parent(X,Y). 
+ancestor(X,Y) :- parent(Z,Y), ancestor(X,Z).
+
+%depth first search (left to right, furthest down left most path)

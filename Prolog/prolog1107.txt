@@ -1,0 +1,24 @@
+a(X,Y) :- !, b(X), c(Y). % only first definition
+a(X,X) :- d(X).
+
+b(1).
+b(2).
+b(3).
+
+c(1).
+c(2).
+c(3).
+
+d(4).
+
+% Context Free Grammars
+
+s -> [].
+s -> [0], s, [1].
+
+
+% definite clause grammars
+x --> [x].
+x --> [y].
+x --> x,x.
+
